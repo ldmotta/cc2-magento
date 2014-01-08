@@ -8,7 +8,7 @@ Requires at least: Magento ver. 1.7.0.2
 
 Tested up to: Magento ver. 1.7.0.2
 
-Stable tag: 1.0.1
+Stable tag: 1.1
 
 
 == Description ==
