@@ -2,8 +2,6 @@
 
 Contributors: ldmotta
 
-Site: http://motanet.com.br
-
 Tags: plugin, magento, correio control, aviso
 
 Requires at least: Magento ver. 1.7.0.2
