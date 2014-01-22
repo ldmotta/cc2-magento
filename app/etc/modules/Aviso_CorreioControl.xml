@@ -1,1 +1,9 @@
-/home/ldmotta/sites/ccplugins/magento/app/etc/modules/Aviso_CorreioControl.xml
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Aviso_CorreioControl>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Aviso_CorreioControl>
+    </modules>
+</config>
