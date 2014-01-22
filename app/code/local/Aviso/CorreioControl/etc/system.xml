@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <sales_email>
+            <groups>
+                <order>
+                    <fields>
+                        <new_customer_template translate="label">
+                            <label>New Customer Template</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </new_customer_template>
+                    </fields>
+                </order>
+            </groups>
+        </sales_email>
+
+        <carriers>
+            <groups>
+                <aviso_correiocontrol translate="label">
+                    <label>Aviso - Correio Control</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment>
+                        <![CDATA[
+                            <div>
+                                <br />
+                                <strong style="font-size:14px">Informações</strong> v1.0<br /><br />
+                                
+                                - O plugin do Correio Control funciona juntamente com um método de envio de sua escolha.<br/> 
+
+                                - A versão 1.0 foi testada apenas com o <a href="http://www.pteixeira.com.br/" target="_blank">plugin de Correios do Pedro Teixeira</a><br/>
+
+                                - Você pode tirar dúvidas ou sugerir melhorias do módulo através do site
+                                <a href="http://www.correiocontrol.com.br/" target="_blank">www.correiocontrol.com.br/</a>.<br />
+                                
+                                - Para utilizar os serviços de integração com o CorreioControl é necessário configurar a sua Api_ID e Api_Key para autenticação.<br />
+                                
+                                - Caso não exista conexão com o webservice do CorreioControl, os grupos não serão carregados e em consequencia os pedidos não serão enviados para acompanhamento.<br /><br />
+                                <hr /><br /><br />
+                            </div>
+                        ]]>
+                    </comment>
+                    <fields>
+                        <active translate="label">
+                            <label>Habilitar</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>                        
+                        <action_url translate="label">
+                            <label>Url webservice:</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Endereço do webservice do CorreioControl</comment>
+                        </action_url>
+                        <auth_apikey translate="label">
+                            <label>Api Key:</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Token para autenticação no webservice</comment>
+                        </auth_apikey>
+                        <auth_id translate="label">
+                            <label>Api ID:</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>
+                                ID para autenticação no webservice
+                            </comment>
+                            <tooltip>Para maiores informações, visite http://avisobrasil.com.br/docs/api-de-autenticacao.</tooltip>
+                        </auth_id>
+                        <auth_group translate="label">
+                            <label>Grupo padrão</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Aviso_CorreioControl_Model_Source_Groups</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Grupo padrão para postagens.</comment>
+                            <tooltip>O grupo padrão é utilizado para vincular a postagem a um grupo, este é um campo obrigatório e caso não seja informado, será utilizado o primeiro grupo do usuário autenticado.</tooltip>
+                        </auth_group>
+                        <!--default_modality translate="label">
+                            <label>Modalidade padrão</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Aviso_CorreioControl_Model_Source_Modality</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Modalidade padrão para postagens.</comment>
+                            <tooltip>Modalidade padrão para criação da transação quando não for definido pelo módulo de envio.</tooltip>
+                        </default_modality-->
+                        <assign_record translate="label">
+                            <label>Atribuir registro</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Atriguir número de registro dos correios.</comment>
+                            <tooltip>A atribuição de registro irá gerar um código de rastreio para o objeto no Correio Control, aplicável apenas para clientes que possuem faixas de registro disponiblizadas pelos Correios, e configurada na aplicação do Correio Control.</tooltip>
+                        </assign_record>
+                        <!--origin_name translate="label">
+                            <label>Nome:</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Nome do remetente</comment>
+                        </origin_name>
+                        <origin_address translate="label">
+                            <label>Endereço:</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Endereço do remetente no formato "Rua, num". Ex. Rua qualquer, 123</comment>
+                        </origin_address>
+                        <origin_neiborhood translate="label">
+                            <label>Bairro:</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Bairro do remetente.</comment>
+                        </origin_neiborhood>
+                        <origin_city translate="label">
+                            <label>Cidade:</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Cidade do remetente.</comment>
+                        </origin_city>
+                        <origin_state translate="label">
+                            <label>Uf:</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Sigla do estado do remetente com duas letras.</comment>
+                        </origin_state>
+                        <origin_postcode translate="label">
+                            <label>Cep:</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>CEP do remetente com 8 dígitos no formato 00000000.</comment>
+                        </origin_postcode-->                        
+                    </fields>
+                </aviso_correiocontrol>
+            </groups>
+        </carriers>
+        
+    </sections>
+origin_city</config>

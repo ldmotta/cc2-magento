@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Aviso_CorreioControl>
+            <version>0.1.0</version>
+        </Aviso_CorreioControl>
+    </modules>
+    <global>
+        <helpers>
+            <orderexport>
+                <class>Aviso_CorreioControl_Helper</class>
+            </orderexport>
+        </helpers>
+        <models>
+            <aviso_correiocontrol>
+                <class>Aviso_CorreioControl_Model</class>
+            </aviso_correiocontrol>
+        </models>
+        <resources>
+            <aviso_correiocontrol_setup>
+                <setup>
+                    <module>Aviso_CorreioControl</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+            </aviso_correiocontrol_setup>
+        </resources>
+        <events>
+            <!--sales_order_payment_pay-->
+            <sales_order_shipment_save_after>
+                <observers>
+                    <aviso_correiocontrol>
+                        <class>aviso_correiocontrol/observer</class>
+                        <method>exportOrder</method>
+                    </aviso_correiocontrol>
+                </observers>
+            <!--/sales_order_payment_pay-->
+            </sales_order_shipment_save_after>
+        </events>
+        
+        <!--sales>
+            <shipping>
+                <carriers>
+                    <aviso_correiocontrol>
+                        <class>Aviso_CorreioControl_Model_Carrier_Export</class>
+                    </aviso_correiocontrol>
+                </carriers>
+            </shipping>
+        </sales-->
+
+    </global>
+    <!--frontend>
+        <events>
+            <checkout_onepage_controller_success_action>
+                <observers>
+                    <aviso_correiocontrol>
+                        <class>aviso_correiocontrol/observer</class>
+                        <method>newCustomer</method>
+                    </aviso_correiocontrol>
+                </observers>
+            </checkout_onepage_controller_success_action>
+        </events>
+    </frontend-->
+</config>
